@@ -20,7 +20,9 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.11",
 ]
-dependencies = []
+dependencies = [
+    "django >= 4.0"
+]
 dynamic = ["version"]
 maintainers = [
     { name = "Dharwin Perez", email = "dharwin@pixelflow.com.mx" },
