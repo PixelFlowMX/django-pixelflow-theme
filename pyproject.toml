@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-pixelflow-theme"
+description = "Django theme for admin"
+authors = [
+    { name = "Dharwin Perez", email = "dharwin@pixelflow.com.mx" },
+]
+keywords = [
+    "django",
+    "admin"
+]
+classifiers = [
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = []
+dynamic = ["version"]
+maintainers = [
+    { name = "Dharwin Perez", email = "dharwin@pixelflow.com.mx" },
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | venv
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+ignore = []
+line-length = 88
+select = ["B", "B9", "C", "E", "F", "W"]
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+[tool.setuptools.packages.find]
+include = ["pixelflow_theme*"]
+
+[tool.setuptools.dynamic.version]
+attr = "pixelflow_theme.metadata.__version__"
