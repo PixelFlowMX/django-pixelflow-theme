@@ -1,0 +1,3 @@
+include README.md
+recursive-include pixelflow_theme *
+recursive-exclude * *.pyc __pycache__ .DS_Store
