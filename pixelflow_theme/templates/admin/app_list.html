@@ -1,22 +1,21 @@
 {% load i18n %}
 
 {% if app_list %}
+    <ul class="nav">
     {% for app in app_list %}
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#advanced" aria-expanded="false" aria-controls="advanced">
-                        <span class="menu-title">{{ app.name }}</span>
-                        <i class="ti-angle-right"></i>
-                    </a>
-                    {% for model in app.models %}
-                        <div class="collapse {% if model.admin_url in request.path|urlencode %}show{% endif %}" id="advanced">
-                            <ul class="nav flex-column sub-menu">
-                            
-                                <li class="nav-item"> <a class="nav-link {% if model.admin_url in request.path|urlencode %}active{% endif %}" href="{{ model.admin_url }}">{{ model.name }}</a></li>
-                    {% endfor %}
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#{{ app.name | slugify }}" aria-expanded="true" aria-controls="{{ app.name | slugify }}">
+                <span class="menu-title">{{ app.name }}</span>
+                <i class="ti-angle-right"></i>
+            </a>
+        {% for model in app.models %}
+            <div class="collapse show" id="{{ app.name | slugify }}">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link {% if model.admin_url in request.path|urlencode %}active{% endif %}" href="{{ model.admin_url }}">{{ model.name }}</a></li>
+                </ul>
+            </div>
+        {% endfor %}
+        </li>
     {% endfor %}
+    </ul>
 {% endif %}

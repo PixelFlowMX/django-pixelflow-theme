@@ -1,1 +1,37 @@
 {% extends 'admin/base_site.html' %}
+{% load i18n admin_urls static admin_list %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 box-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">Buttons example</h4>
+                    <p class="text-muted font-14 mb-4">
+                        The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page
+                        that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
+                    </p>
+                    {% block result_list %}
+                        {% result_list cl %}
+                    {% endblock %}
+                </div> <!-- end card body-->
+            </div> <!-- end card -->
+        </div><!-- end col-->
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+    <!-- Inject JS -->
+    <script src="{% static 'admin/js/default-assets/jquery.datatables.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/datatables.bootstrap4.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/datatable-responsive.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/responsive.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/datatable-button.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/button.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/button.html5.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/button.flash.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/button.print.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/datatables.keytable.min.js' %}"></script>
+    <script src="{% static 'admin/js/default-assets/datatables.select.min.js' %}"></script>
+    {% comment %} <script src="{% static 'admin/js/default-assets/demo.datatable-init.js' %}"></script>{% endcomment %}
+{% endblock %}
