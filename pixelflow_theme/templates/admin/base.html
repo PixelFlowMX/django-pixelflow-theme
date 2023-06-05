@@ -23,6 +23,8 @@
 
 </head>
 
+<body {% if 'login' in request.path %}class="login-area" {% endif %}>
 {% block body %} {% endblock %}
+</body>
 
 </html>
